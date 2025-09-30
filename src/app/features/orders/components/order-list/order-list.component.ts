@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-order-list',
@@ -6,4 +6,18 @@ import { Component } from '@angular/core';
   templateUrl: './order-list.component.html',
   styleUrl: './order-list.component.scss',
 })
-export class OrderListComponent {}
+export class OrderListComponent {
+  /**
+   * product name
+   * @required
+   */
+  @Input() label = 'Product';
+
+  /**
+   * price product
+   * @required
+   */
+  @Input() price = 0;
+
+  @Output() clicked = new EventEmitter<Event>();
+}

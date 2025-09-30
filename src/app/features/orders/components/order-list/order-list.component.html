@@ -1,9 +1,13 @@
-<div class="flex border border-black rounded-lg m-1">
+<div
+  class="flex border border-black rounded-lg m-1"
+  (click)="clicked.emit($event)"
+>
   <div class="w-30 flex-fill p-2">
     <img src="placeholder.jpg" class="w-full" alt="" />
   </div>
   <div class="w-70 flex-fill py-6 px-4">
-    <span class="font-medium inline-block align-middle">PRODOTTO 1</span><br />
-    <span>34,5€</span>
+    <span class="font-medium inline-block align-middle">{{ label }}</span
+    ><br />
+    <span>{{ price.toFixed(2) }}€</span>
   </div>
 </div>

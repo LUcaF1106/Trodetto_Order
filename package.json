@@ -36,6 +36,7 @@
     "@compodoc/compodoc": "^1.1.30",
     "@storybook/addon-docs": "^9.1.7",
     "@storybook/addon-onboarding": "^9.1.7",
+    "@storybook/addon-styling-webpack": "^2.0.0",
     "@storybook/angular": "^9.1.7",
     "@types/jasmine": "~5.1.0",
     "angular-eslint": "20.3.0",
