@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { OrderListComponent } from './features/orders/components/order-list/order-list.component';
+import { OrderListComponent } from './features/orders/components/order/order-list.component';
 
 @Component({
   selector: 'app-root',

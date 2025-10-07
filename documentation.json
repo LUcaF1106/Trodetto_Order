@@ -2,6 +2,51 @@
   "pipes": [],
   "interfaces": [
     {
+      "name": "Product_save",
+      "id": "interface-Product_save-c74c68a69941ac4f495b0fcfdb7eac9dfe125da1342f2f263ba10682313a6347c791b858fe2b598031c0de90905a9a66c5a013acd5840b1856e964201b0031d4",
+      "file": "src/app/common/interface/product_save.ts",
+      "deprecated": false,
+      "deprecationMessage": "",
+      "type": "interface",
+      "sourceCode": "export interface Product_save {\r\n  id: number;\r\n  nome: string;\r\n  prezzo: number;\r\n\r\n}\r\n",
+      "properties": [
+        {
+          "name": "id",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "number",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 2
+        },
+        {
+          "name": "nome",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "string",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 3
+        },
+        {
+          "name": "prezzo",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "number",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 4
+        }
+      ],
+      "indexSignatures": [],
+      "kind": 171,
+      "methods": [],
+      "extends": []
+    },
+    {
       "name": "User",
       "id": "interface-User-d4821beac0e4a852e513391b7470981c4353fdd95a18628bb68136c8695b489ee15b926e2e5031bc26cf30e1508e0a362c3ee13a06734702b4d15af140e485d5",
       "file": "src/stories/user.ts",
@@ -35,7 +80,7 @@
   "components": [
     {
       "name": "AppComponent",
-      "id": "component-AppComponent-3063ddfb5812a854638ab82ddc28028679fd28776ff4b1e848510711f358e442328a7de51688986b51f3e579ac19c4d5f902da6ef04d79cfc34216c668afdd92",
+      "id": "component-AppComponent-ff0d015c1237bbb20c40a3c981ad88ea79397d87763050fd8255d21390d3579ff832e7e56f305084729a7d21c4d152afccf102c523ab66ccdc5058dbe842b606",
       "file": "src/app/app.component.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -92,13 +137,13 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\nimport { OrderListComponent } from './features/orders/components/order-list/order-list.component';\n\n@Component({\n  selector: 'app-root',\n  imports: [RouterOutlet, OrderListComponent],\n  templateUrl: './app.component.html',\n  styleUrl: './app.component.scss',\n})\nexport class AppComponent {\n  title = 'Trodetto_Order';\n  f() {\n    return 0;\n  }\n}\n",
+      "sourceCode": "import { Component } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\nimport { OrderListComponent} from \"./features/orders/components/order/order-list.component\";\n\n@Component({\n  selector: 'app-root',\n  imports: [RouterOutlet, OrderListComponent],\n  templateUrl: './app.component.html',\n  styleUrl: './app.component.scss',\n})\nexport class AppComponent {\n  title = 'Trodetto_Order';\n  f() {\n    return 0;\n  }\n}\n",
       "styleUrl": "./app.component.scss",
       "assetsDirs": [],
       "styleUrlsData": "",
       "stylesData": "",
       "extends": [],
-      "templateData": "<div class=\"m-4\"><app-order-list></app-order-list></div>\n"
+      "templateData": "<app-order-list></app-order-list>\n"
     },
     {
       "name": "ButtonComponent",
@@ -318,8 +363,8 @@
     },
     {
       "name": "OrderListComponent",
-      "id": "component-OrderListComponent-135eae2c9f5ac99f70d7f1b87ca10cf576e18004803cc5606db1fa84a44e4da10a2e678ee620064c02bed8ac9c82a5e3d67d0d8aa8c84c947ec172828577cda1",
-      "file": "src/app/features/orders/components/order-list/order-list.component.ts",
+      "id": "component-OrderListComponent-f1214d48c333a1613d3b67f6e0fc8737dcbd0e7294020cc2f610b2321658adc44871b0cf235e5c8405e8a01255aaeae2f5a19ae0a2c6209318e658e259ab74f8",
+      "file": "src/app/features/orders/components/order/order-list.component.ts",
       "encapsulation": [],
       "entryComponents": [],
       "inputs": [],
@@ -333,8 +378,240 @@
       "hostDirectives": [],
       "inputsClass": [],
       "outputsClass": [],
+      "propertiesClass": [
+        {
+          "name": "productList",
+          "defaultValue": "[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\",\"g\",\"h\"]",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "String[]",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 15
+        }
+      ],
+      "methodsClass": [
+        {
+          "name": "clickProduct",
+          "args": [
+            {
+              "name": "$event",
+              "type": "Product_save",
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 17,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "jsdoctags": [
+            {
+              "name": "$event",
+              "type": "Product_save",
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
+        }
+      ],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "standalone": false,
+      "imports": [
+        {
+          "name": "OrderListItemComponent",
+          "type": "component"
+        }
+      ],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { Component } from '@angular/core';\r\nimport { OrderListItemComponent} from \"../order-list/order-list-item.component\";\r\nimport {Product_save} from \"../../../../common/interface/product_save\";\r\n\r\n@Component({\r\n  selector: 'app-order-list',\r\n  imports: [\r\n    OrderListItemComponent\r\n  ],\r\n  templateUrl: './order-list.component.html',\r\n  styleUrl: './order-list.component.scss'\r\n})\r\nexport class OrderListComponent {\r\n\r\n  productList : String[]=[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\",\"g\",\"h\"];\r\n\r\n  clickProduct($event: Product_save) {\r\n    console.log($event);\r\n  }\r\n}\r\n",
+      "styleUrl": "./order-list.component.scss",
+      "assetsDirs": [],
+      "styleUrlsData": "",
+      "stylesData": "",
+      "extends": [],
+      "templateData": "<div class=\"m-3\">\r\n  @for ( product of productList; track $index){\r\n    <div class=\"mb-1\">\r\n      <app-order-list-item [id]=\"$index\" label=\"cacca\" price=\"66\" (clicked)=\"clickProduct($event)\" ></app-order-list-item>\r\n    </div>\r\n\r\n  }\r\n</div>\r\n\r\n"
+    },
+    {
+      "name": "OrderListItemComponent",
+      "id": "component-OrderListItemComponent-76dbde219844252bf53771cf09df354699dca9676cb8fc6c5ad25a1a3420b803e3398a728168cce9fe53936806f8274c932ee9a9d89af0dc6f9c3c6f04621c3e",
+      "file": "src/app/features/orders/components/order-list/order-list-item.component.ts",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-order-list-item",
+      "styleUrls": [],
+      "styles": [],
+      "templateUrl": ["./order-list-item.component.html"],
+      "viewProviders": [],
+      "hostDirectives": [],
+      "inputsClass": [
+        {
+          "name": "id",
+          "defaultValue": "0",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "jsdoctags": [
+            {
+              "pos": 391,
+              "end": 404,
+              "kind": 327,
+              "id": 0,
+              "flags": 16842752,
+              "modifierFlagsCache": 0,
+              "transformFlags": 0,
+              "tagName": {
+                "pos": 392,
+                "end": 400,
+                "kind": 80,
+                "id": 0,
+                "flags": 16842752,
+                "transformFlags": 0,
+                "escapedText": "required"
+              },
+              "comment": ""
+            }
+          ],
+          "rawdescription": "\n\nId product\n",
+          "description": "<p>Id product</p>\n",
+          "line": 16,
+          "type": "number",
+          "decorators": []
+        },
+        {
+          "name": "label",
+          "defaultValue": "'Product'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "jsdoctags": [
+            {
+              "pos": 461,
+              "end": 474,
+              "kind": 327,
+              "id": 0,
+              "flags": 16842752,
+              "modifierFlagsCache": 0,
+              "transformFlags": 0,
+              "tagName": {
+                "pos": 462,
+                "end": 470,
+                "kind": 80,
+                "id": 0,
+                "flags": 16842752,
+                "transformFlags": 0,
+                "escapedText": "required"
+              },
+              "comment": ""
+            }
+          ],
+          "rawdescription": "\n\nproduct name\n",
+          "description": "<p>product name</p>\n",
+          "line": 21,
+          "type": "string",
+          "decorators": []
+        },
+        {
+          "required": false,
+          "name": "price",
+          "defaultValue": "0",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "jsdoctags": [
+            {
+              "pos": 617,
+              "end": 630,
+              "kind": 327,
+              "id": 0,
+              "flags": 16842752,
+              "modifierFlagsCache": 0,
+              "transformFlags": 0,
+              "tagName": {
+                "pos": 618,
+                "end": 626,
+                "kind": 80,
+                "id": 0,
+                "flags": 16842752,
+                "transformFlags": 0,
+                "escapedText": "required"
+              },
+              "comment": ""
+            }
+          ],
+          "rawdescription": "\n\nprice product\n",
+          "description": "<p>price product</p>\n",
+          "line": 32,
+          "type": "number",
+          "decorators": []
+        },
+        {
+          "name": "urlImg",
+          "defaultValue": "'placeholder.jpg'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "jsdoctags": [
+            {
+              "pos": 531,
+              "end": 544,
+              "kind": 327,
+              "id": 0,
+              "flags": 16842752,
+              "modifierFlagsCache": 0,
+              "transformFlags": 0,
+              "tagName": {
+                "pos": 532,
+                "end": 540,
+                "kind": 80,
+                "id": 0,
+                "flags": 16842752,
+                "transformFlags": 0,
+                "escapedText": "required"
+              },
+              "comment": ""
+            }
+          ],
+          "rawdescription": "\n\nurl img\n",
+          "description": "<p>url img</p>\n",
+          "line": 26,
+          "type": "string",
+          "decorators": []
+        }
+      ],
+      "outputsClass": [
+        {
+          "name": "clicked",
+          "defaultValue": "new EventEmitter<Product_save>()",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 34,
+          "type": "EventEmitter"
+        }
+      ],
       "propertiesClass": [],
-      "methodsClass": [],
+      "methodsClass": [
+        {
+          "name": "click",
+          "args": [],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 36,
+          "deprecated": false,
+          "deprecationMessage": ""
+        }
+      ],
       "deprecated": false,
       "deprecationMessage": "",
       "hostBindings": [],
@@ -344,13 +621,13 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-order-list',\n  imports: [],\n  templateUrl: './order-list.component.html',\n  styleUrl: './order-list.component.scss',\n})\nexport class OrderListComponent {}\n",
-      "styleUrl": "./order-list.component.scss",
+      "sourceCode": "import {Component, EventEmitter, Input, numberAttribute, Output} from '@angular/core';\n\nimport {Product_save} from \"../../../../common/interface/product_save\";\n\n@Component({\n  selector: 'app-order-list-item',\n  imports: [],\n  templateUrl: './order-list-item.component.html',\n  styleUrl: './order-list-item.component.scss',\n})\nexport class OrderListItemComponent {\n  /**\n   * Id product\n   * @required\n   */\n  @Input() id: number=0;\n  /**\n   * product name\n   * @required\n   */\n  @Input() label = 'Product';\n  /**\n   * url img\n   * @required\n   */\n  @Input() urlImg = 'placeholder.jpg';\n\n  /**\n   * price product\n   * @required\n   */\n  @Input({transform: numberAttribute}) price = 0;\n\n  @Output() clicked = new EventEmitter<Product_save>();\n\n  click(){\n    this.clicked.emit({id:0, nome: this.label, prezzo: this.price});\n  }\n}\n",
+      "styleUrl": "./order-list-item.component.scss",
       "assetsDirs": [],
       "styleUrlsData": "",
       "stylesData": "",
       "extends": [],
-      "templateData": "<div class=\"flex border border-black rounded-lg m-1\">\n  <div class=\"w-30 flex-fill p-2\">\n    <img src=\"placeholder.jpg\" class=\"w-full\" alt=\"\" />\n  </div>\n  <div class=\"w-70 flex-fill py-6 px-4\">\n    <span class=\"font-medium inline-block align-middle\">PRODOTTO 1</span><br />\n    <span>34,5€</span>\n  </div>\n</div>\n"
+      "templateData": "<div\n  class=\"flex items-center gap-x-2 bg-white px-1 py-1 border-1 border-gray-500 rounded-lg\"\n  (click)=\"click()\"\n>\n  <div class=\"w-1/4 \">\n    <img [src]=\"urlImg\" class=\"w-full h-auto rounded-lg\" alt=\"\" />\n  </div>\n  <div class=\"w-3/4\">\n    <span class=\"text-xl font-medium text-black\">{{ label }}</span><br />\n    <p class=\"text-gray-500\">{{ price.toFixed(2) }}€</p>\n  </div>\n</div>\n"
     },
     {
       "name": "PageComponent",
@@ -508,7 +785,7 @@
     "children": []
   },
   "coverage": {
-    "count": 10,
+    "count": 14,
     "status": "low",
     "files": [
       {
@@ -541,12 +818,30 @@
         "status": "low"
       },
       {
-        "filePath": "src/app/features/orders/components/order-list/order-list.component.ts",
+        "filePath": "src/app/common/interface/product_save.ts",
+        "type": "interface",
+        "linktype": "interface",
+        "name": "Product_save",
+        "coveragePercent": 0,
+        "coverageCount": "0/4",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/features/orders/components/order-list/order-list-item.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "OrderListItemComponent",
+        "coveragePercent": 57,
+        "coverageCount": "4/7",
+        "status": "good"
+      },
+      {
+        "filePath": "src/app/features/orders/components/order/order-list.component.ts",
         "type": "component",
         "linktype": "component",
         "name": "OrderListComponent",
         "coveragePercent": 0,
-        "coverageCount": "0/1",
+        "coverageCount": "0/3",
         "status": "low"
       },
       {

@@ -1,0 +1,13 @@
+<div
+  class="flex items-center gap-x-2 bg-white px-1 py-1 border-1 border-gray-500 rounded-lg"
+  (click)="click()"
+>
+  <div class="w-1/4">
+    <img [src]="urlImg" class="w-full h-auto rounded-lg" alt="" />
+  </div>
+  <div class="w-3/4">
+    <span class="text-xl font-medium text-black">{{ label }}</span
+    ><br />
+    <p class="text-gray-500">{{ price.toFixed(2) }}€</p>
+  </div>
+</div>

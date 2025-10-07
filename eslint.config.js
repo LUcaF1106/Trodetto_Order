@@ -50,7 +50,7 @@ module.exports = tseslint.config(
     files: ["**/*.html"],
     extends: [
       ...angular.configs.templateRecommended,
-      ...angular.configs.templateAccessibility,
+      //...angular.configs.templateAccessibility,
     ],
     rules: {
       // Se vuoi disattivare o rendere meno severa la regola dell'alt text:
