@@ -1,12 +1,12 @@
-<div class="m-3">
+<shopping-cart-outline-icon />
+
+<div class="grid grid-cols-2 gap-2 mt-2 mx-4">
   @for (product of productList; track $index) {
-    <div class="mb-2">
-      <app-order-list-item
-        [id]="$index"
-        [label]="'Prodotto ' + $index"
-        price="66"
-        (clicked)="clickProduct($event)"
-      ></app-order-list-item>
-    </div>
+    <app-order-list-item
+      [id]="$index"
+      [label]="'Prodotto aaaaaaaa' + $index"
+      price="66"
+      (clicked)="clickProduct($event)"
+    ></app-order-list-item>
   }
 </div>

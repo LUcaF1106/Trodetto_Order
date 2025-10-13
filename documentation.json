@@ -3,12 +3,12 @@
   "interfaces": [
     {
       "name": "Product_save",
-      "id": "interface-Product_save-c74c68a69941ac4f495b0fcfdb7eac9dfe125da1342f2f263ba10682313a6347c791b858fe2b598031c0de90905a9a66c5a013acd5840b1856e964201b0031d4",
+      "id": "interface-Product_save-017e9dc395f6bbf9cdee2041fa093879ade22e256fbf38e8a254da2dcf34193378774504d57299eaf4b8c10a0bee7388d8e61246f4808819edf4e1488014a777",
       "file": "src/app/common/interface/product_save.ts",
       "deprecated": false,
       "deprecationMessage": "",
       "type": "interface",
-      "sourceCode": "export interface Product_save {\r\n  id: number;\r\n  nome: string;\r\n  prezzo: number;\r\n\r\n}\r\n",
+      "sourceCode": "export interface Product_save {\n  id: number;\n  nome: string;\n  prezzo: number;\n}\n",
       "properties": [
         {
           "name": "id",
@@ -80,7 +80,7 @@
   "components": [
     {
       "name": "AppComponent",
-      "id": "component-AppComponent-ff0d015c1237bbb20c40a3c981ad88ea79397d87763050fd8255d21390d3579ff832e7e56f305084729a7d21c4d152afccf102c523ab66ccdc5058dbe842b606",
+      "id": "component-AppComponent-9b806ca5072182ece439602a0c5deb5ec53f0e816d014c75f224fe496c9f64bb125fdc43e2dfeb8e113da93ecd0539fcefbe0406c64d03720c9e7a19e7f4b8e1",
       "file": "src/app/app.component.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -137,7 +137,7 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\nimport { OrderListComponent} from \"./features/orders/components/order/order-list.component\";\n\n@Component({\n  selector: 'app-root',\n  imports: [RouterOutlet, OrderListComponent],\n  templateUrl: './app.component.html',\n  styleUrl: './app.component.scss',\n})\nexport class AppComponent {\n  title = 'Trodetto_Order';\n  f() {\n    return 0;\n  }\n}\n",
+      "sourceCode": "import { Component } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\nimport { OrderListComponent } from './features/orders/components/order/order-list.component';\n\n@Component({\n  selector: 'app-root',\n  imports: [RouterOutlet, OrderListComponent],\n  templateUrl: './app.component.html',\n  styleUrl: './app.component.scss',\n})\nexport class AppComponent {\n  title = 'Trodetto_Order';\n  f() {\n    return 0;\n  }\n}\n",
       "styleUrl": "./app.component.scss",
       "assetsDirs": [],
       "styleUrlsData": "",
@@ -363,7 +363,7 @@
     },
     {
       "name": "OrderListComponent",
-      "id": "component-OrderListComponent-f1214d48c333a1613d3b67f6e0fc8737dcbd0e7294020cc2f610b2321658adc44871b0cf235e5c8405e8a01255aaeae2f5a19ae0a2c6209318e658e259ab74f8",
+      "id": "component-OrderListComponent-b38b84cdfbecd9ec39e5a7645ef5824c1f2bf66bd9485491a3e5b0a11442c62f6d0e4e3e37670964446485d4798056255ad8b5755d1cb458c29476977f1d2cae",
       "file": "src/app/features/orders/components/order/order-list.component.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -381,14 +381,14 @@
       "propertiesClass": [
         {
           "name": "productList",
-          "defaultValue": "[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\",\"g\",\"h\"]",
+          "defaultValue": "['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']",
           "deprecated": false,
           "deprecationMessage": "",
-          "type": "String[]",
+          "type": "string[]",
           "indexKey": "",
           "optional": false,
           "description": "",
-          "line": 15
+          "line": 13
         }
       ],
       "methodsClass": [
@@ -405,7 +405,7 @@
           "optional": false,
           "returnType": "void",
           "typeParameters": [],
-          "line": 17,
+          "line": 15,
           "deprecated": false,
           "deprecationMessage": "",
           "jsdoctags": [
@@ -430,22 +430,26 @@
         {
           "name": "OrderListItemComponent",
           "type": "component"
+        },
+        {
+          "name": "ShoppingCartOutlineIconComponent",
+          "type": "component"
         }
       ],
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component } from '@angular/core';\r\nimport { OrderListItemComponent} from \"../order-list/order-list-item.component\";\r\nimport {Product_save} from \"../../../../common/interface/product_save\";\r\n\r\n@Component({\r\n  selector: 'app-order-list',\r\n  imports: [\r\n    OrderListItemComponent\r\n  ],\r\n  templateUrl: './order-list.component.html',\r\n  styleUrl: './order-list.component.scss'\r\n})\r\nexport class OrderListComponent {\r\n\r\n  productList : String[]=[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\",\"g\",\"h\"];\r\n\r\n  clickProduct($event: Product_save) {\r\n    console.log($event);\r\n  }\r\n}\r\n",
+      "sourceCode": "import { Component } from '@angular/core';\nimport { OrderListItemComponent } from '../order-list/order-list-item.component';\nimport { Product_save } from '../../../../common/interface/product_save';\nimport {ShoppingCartOutlineIconComponent} from \"@dimaslz/ng-heroicons\";\n\n@Component({\n  selector: 'app-order-list',\n  imports: [OrderListItemComponent, ShoppingCartOutlineIconComponent],\n  templateUrl: './order-list.component.html',\n  styleUrl: './order-list.component.scss',\n})\nexport class OrderListComponent {\n  productList: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];\n\n  clickProduct($event: Product_save) {\n    console.log($event);\n  }\n}\n",
       "styleUrl": "./order-list.component.scss",
       "assetsDirs": [],
       "styleUrlsData": "",
       "stylesData": "",
       "extends": [],
-      "templateData": "<div class=\"m-3\">\r\n  @for ( product of productList; track $index){\r\n    <div class=\"mb-1\">\r\n      <app-order-list-item [id]=\"$index\" label=\"cacca\" price=\"66\" (clicked)=\"clickProduct($event)\" ></app-order-list-item>\r\n    </div>\r\n\r\n  }\r\n</div>\r\n\r\n"
+      "templateData": "<shopping-cart-outline-icon />\n\n<div class=\"grid grid-cols-2 gap-2 mt-2 mx-4\">\n  @for (product of productList; track $index) {\n      <app-order-list-item\n        [id]=\"$index\"\n        [label]=\"'Prodotto aaaaaaaa' + $index\"\n        price=\"66\"\n        (clicked)=\"clickProduct($event)\"\n      ></app-order-list-item>\n  }\n</div>\n"
     },
     {
       "name": "OrderListItemComponent",
-      "id": "component-OrderListItemComponent-76dbde219844252bf53771cf09df354699dca9676cb8fc6c5ad25a1a3420b803e3398a728168cce9fe53936806f8274c932ee9a9d89af0dc6f9c3c6f04621c3e",
+      "id": "component-OrderListItemComponent-4d18c81ce7d32caf0586a0408e405aff3bc11a8e32e541113e1e384b304c6e72bea53386f2f9a1254df805ee5a5e3c8bd78e034cda312838551848eca9eb2511",
       "file": "src/app/features/orders/components/order-list/order-list-item.component.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -466,16 +470,16 @@
           "deprecationMessage": "",
           "jsdoctags": [
             {
-              "pos": 391,
-              "end": 404,
+              "pos": 510,
+              "end": 523,
               "kind": 327,
               "id": 0,
               "flags": 16842752,
               "modifierFlagsCache": 0,
               "transformFlags": 0,
               "tagName": {
-                "pos": 392,
-                "end": 400,
+                "pos": 511,
+                "end": 519,
                 "kind": 80,
                 "id": 0,
                 "flags": 16842752,
@@ -487,7 +491,7 @@
           ],
           "rawdescription": "\n\nId product\n",
           "description": "<p>Id product</p>\n",
-          "line": 16,
+          "line": 25,
           "type": "number",
           "decorators": []
         },
@@ -498,16 +502,16 @@
           "deprecationMessage": "",
           "jsdoctags": [
             {
-              "pos": 461,
-              "end": 474,
+              "pos": 574,
+              "end": 587,
               "kind": 327,
               "id": 0,
               "flags": 16842752,
               "modifierFlagsCache": 0,
               "transformFlags": 0,
               "tagName": {
-                "pos": 462,
-                "end": 470,
+                "pos": 575,
+                "end": 583,
                 "kind": 80,
                 "id": 0,
                 "flags": 16842752,
@@ -519,7 +523,7 @@
           ],
           "rawdescription": "\n\nproduct name\n",
           "description": "<p>product name</p>\n",
-          "line": 21,
+          "line": 30,
           "type": "string",
           "decorators": []
         },
@@ -531,16 +535,16 @@
           "deprecationMessage": "",
           "jsdoctags": [
             {
-              "pos": 617,
-              "end": 630,
+              "pos": 730,
+              "end": 743,
               "kind": 327,
               "id": 0,
               "flags": 16842752,
               "modifierFlagsCache": 0,
               "transformFlags": 0,
               "tagName": {
-                "pos": 618,
-                "end": 626,
+                "pos": 731,
+                "end": 739,
                 "kind": 80,
                 "id": 0,
                 "flags": 16842752,
@@ -552,7 +556,7 @@
           ],
           "rawdescription": "\n\nprice product\n",
           "description": "<p>price product</p>\n",
-          "line": 32,
+          "line": 41,
           "type": "number",
           "decorators": []
         },
@@ -563,16 +567,16 @@
           "deprecationMessage": "",
           "jsdoctags": [
             {
-              "pos": 531,
-              "end": 544,
+              "pos": 644,
+              "end": 657,
               "kind": 327,
               "id": 0,
               "flags": 16842752,
               "modifierFlagsCache": 0,
               "transformFlags": 0,
               "tagName": {
-                "pos": 532,
-                "end": 540,
+                "pos": 645,
+                "end": 653,
                 "kind": 80,
                 "id": 0,
                 "flags": 16842752,
@@ -584,7 +588,7 @@
           ],
           "rawdescription": "\n\nurl img\n",
           "description": "<p>url img</p>\n",
-          "line": 26,
+          "line": 35,
           "type": "string",
           "decorators": []
         }
@@ -595,7 +599,7 @@
           "defaultValue": "new EventEmitter<Product_save>()",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 34,
+          "line": 43,
           "type": "EventEmitter"
         }
       ],
@@ -607,7 +611,7 @@
           "optional": false,
           "returnType": "void",
           "typeParameters": [],
-          "line": 36,
+          "line": 45,
           "deprecated": false,
           "deprecationMessage": ""
         }
@@ -617,17 +621,22 @@
       "hostBindings": [],
       "hostListeners": [],
       "standalone": false,
-      "imports": [],
+      "imports": [
+        {
+          "name": "PlusCircleSolidIconComponent",
+          "type": "component"
+        }
+      ],
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import {Component, EventEmitter, Input, numberAttribute, Output} from '@angular/core';\n\nimport {Product_save} from \"../../../../common/interface/product_save\";\n\n@Component({\n  selector: 'app-order-list-item',\n  imports: [],\n  templateUrl: './order-list-item.component.html',\n  styleUrl: './order-list-item.component.scss',\n})\nexport class OrderListItemComponent {\n  /**\n   * Id product\n   * @required\n   */\n  @Input() id: number=0;\n  /**\n   * product name\n   * @required\n   */\n  @Input() label = 'Product';\n  /**\n   * url img\n   * @required\n   */\n  @Input() urlImg = 'placeholder.jpg';\n\n  /**\n   * price product\n   * @required\n   */\n  @Input({transform: numberAttribute}) price = 0;\n\n  @Output() clicked = new EventEmitter<Product_save>();\n\n  click(){\n    this.clicked.emit({id:0, nome: this.label, prezzo: this.price});\n  }\n}\n",
+      "sourceCode": "import {\n  Component,\n  EventEmitter,\n  Input,\n  numberAttribute,\n  Output,\n} from '@angular/core';\n\nimport { Product_save } from '../../../../common/interface/product_save';\nimport {PlusCircleSolidIconComponent} from \"@dimaslz/ng-heroicons\";\n\n@Component({\n  selector: 'app-order-list-item',\n  imports: [\n    PlusCircleSolidIconComponent\n  ],\n  templateUrl: './order-list-item.component.html',\n  styleUrl: './order-list-item.component.scss',\n})\nexport class OrderListItemComponent {\n  /**\n   * Id product\n   * @required\n   */\n  @Input() id = 0;\n  /**\n   * product name\n   * @required\n   */\n  @Input() label = 'Product';\n  /**\n   * url img\n   * @required\n   */\n  @Input() urlImg = 'placeholder.jpg';\n\n  /**\n   * price product\n   * @required\n   */\n  @Input({ transform: numberAttribute }) price = 0;\n\n  @Output() clicked = new EventEmitter<Product_save>();\n\n  click() {\n    this.clicked.emit({ id: 0, nome: this.label, prezzo: this.price });\n  }\n}\n",
       "styleUrl": "./order-list-item.component.scss",
       "assetsDirs": [],
       "styleUrlsData": "",
       "stylesData": "",
       "extends": [],
-      "templateData": "<div\n  class=\"flex items-center gap-x-2 bg-white px-1 py-1 border-1 border-gray-500 rounded-lg\"\n  (click)=\"click()\"\n>\n  <div class=\"w-1/4 \">\n    <img [src]=\"urlImg\" class=\"w-full h-auto rounded-lg\" alt=\"\" />\n  </div>\n  <div class=\"w-3/4\">\n    <span class=\"text-xl font-medium text-black\">{{ label }}</span><br />\n    <p class=\"text-gray-500\">{{ price.toFixed(2) }}€</p>\n  </div>\n</div>\n"
+      "templateData": "<div\n  class=\"flex flex-col items-center bg-white px-1 py-1 border-1 border-gray-500 rounded-lg select-none\"\n  (click)=\"click()\">\n  <div class=\"w-full\">\n    <img [src]=\"urlImg\" class=\"w-full h-auto rounded-lg p-4\" alt=\"\" />\n    <div class=\"flex justify-center \">\n      <span class=\"text-sm text-black font-sans font-bold px-2 pb-2\">{{ label }}</span>\n    </div>\n    <div class=\"flex items-center justify-between px-1\">\n      <div class=\"\"><p class=\"text-gray-500 text-xs font-sans\">{{ price.toFixed(2) }}€</p></div>\n      <div class=\"\"><plus-circle-solid-icon size=\"24\"/></div>\n    </div>\n  </div>\n\n</div>\n\n"
     },
     {
       "name": "PageComponent",
@@ -733,7 +742,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "ApplicationConfig",
-        "defaultValue": "{\r\n  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]\r\n}"
+        "defaultValue": "{\r\n  providers: [\r\n    provideZoneChangeDetection({ eventCoalescing: true }),\r\n    provideRouter(routes),\r\n]\r\n}"
       },
       {
         "name": "routes",
@@ -759,7 +768,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "ApplicationConfig",
-          "defaultValue": "{\r\n  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]\r\n}"
+          "defaultValue": "{\r\n  providers: [\r\n    provideZoneChangeDetection({ eventCoalescing: true }),\r\n    provideRouter(routes),\r\n]\r\n}"
         }
       ],
       "src/app/app.routes.ts": [
