@@ -10,7 +10,25 @@ import { ShoppingCartOutlineIconComponent } from '@dimaslz/ng-heroicons';
   styleUrl: './order-list.component.scss',
 })
 export class OrderListComponent {
-  productList: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+  productList: string[] = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+  ];
 
   clickProduct($event: Product_save) {
     console.log($event);
