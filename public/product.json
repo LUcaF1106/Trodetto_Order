@@ -1,0 +1,482 @@
+[
+  {
+    "id": 1,
+    "nome": "Panino Hamburger",
+    "prezzo": 7.5,
+    "categoria": "PANINI",
+    "con": [
+      {
+        "id": 13,
+        "nome": "Formaggio"
+      },
+      {
+        "id": 8,
+        "nome": "Cipolla"
+      },
+      {
+        "id": 7,
+        "nome": "Peperoni"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nome": "Panino Porchetta",
+    "prezzo": 7,
+    "categoria": "PANINI",
+    "con": [
+      {
+        "id": 7,
+        "nome": "Peperoni"
+      },
+      {
+        "id": 8,
+        "nome": "Cipolla"
+      },
+      {
+        "id": 13,
+        "nome": "Formaggio"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nome": "Panino Sottocosta",
+    "prezzo": 6.5,
+    "categoria": "PANINI",
+    "con": [
+      {
+        "id": 13,
+        "nome": "Formaggio"
+      },
+      {
+        "id": 7,
+        "nome": "Peperoni"
+      },
+      {
+        "id": 8,
+        "nome": "Cipolla"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "nome": "Panino Bistecche Coppa",
+    "prezzo": 7,
+    "categoria": "PANINI",
+    "con": [
+      {
+        "id": 7,
+        "nome": "Peperoni"
+      },
+      {
+        "id": 8,
+        "nome": "Cipolla"
+      },
+      {
+        "id": 13,
+        "nome": "Formaggio"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "nome": "Panino Verdure Grigliate",
+    "prezzo": 6.5,
+    "categoria": "PANINI",
+    "con": [
+      {
+        "id": 13,
+        "nome": "Formaggio"
+      },
+      {
+        "id": 7,
+        "nome": "Peperoni"
+      },
+      {
+        "id": 9,
+        "nome": "Melanzane"
+      },
+      {
+        "id": 10,
+        "nome": "Zucchine"
+      },
+      {
+        "id": 8,
+        "nome": "Cipolla"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "nome": "Panino Vegano",
+    "prezzo": 7,
+    "categoria": "PANINI",
+    "con": [
+      {
+        "id": 8,
+        "nome": "Cipolla"
+      },
+      {
+        "id": 7,
+        "nome": "Peperoni"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "nome": "Panino gli AMICI",
+    "prezzo": 9.5,
+    "categoria": "PANINI",
+    "con": [
+      {
+        "id": 7,
+        "nome": "Peperoni"
+      },
+      {
+        "id": 8,
+        "nome": "Cipolla"
+      },
+      {
+        "id": 13,
+        "nome": "Formaggio"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "nome": "Panino TRODETTO Special",
+    "prezzo": 9,
+    "categoria": "PANINI",
+    "con": [
+      {
+        "id": 8,
+        "nome": "Cipolla"
+      },
+      {
+        "id": 7,
+        "nome": "Peperoni"
+      },
+      {
+        "id": 13,
+        "nome": "Formaggio"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "nome": "Panino TrodoPork",
+    "prezzo": 9,
+    "categoria": "PANINI",
+    "con": [
+      {
+        "id": 13,
+        "nome": "Formaggio"
+      },
+      {
+        "id": 12,
+        "nome": "Cavolo cappucio"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "nome": "Piatto AMICIZIA",
+    "prezzo": 9.5,
+    "categoria": "PANINI",
+    "con": [
+      {
+        "id": 7,
+        "nome": "Peperoni"
+      },
+      {
+        "id": 8,
+        "nome": "Cipolla"
+      },
+      {
+        "id": 13,
+        "nome": "Formaggio"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "nome": "Mezzo Stinco",
+    "prezzo": 6,
+    "categoria": "PANINI",
+    "con": []
+  },
+  {
+    "id": 12,
+    "nome": "Fagioli Texana",
+    "prezzo": 7,
+    "categoria": "CONTORNI",
+    "con": []
+  },
+  {
+    "id": 13,
+    "nome": "Patatine",
+    "prezzo": 3,
+    "categoria": "CONTORNI",
+    "con": []
+  },
+  {
+    "id": 14,
+    "nome": "Olive Ascolane",
+    "prezzo": 4,
+    "categoria": "CONTORNI",
+    "con": []
+  },
+  {
+    "id": 15,
+    "nome": "Pepite Pollo",
+    "prezzo": 4,
+    "categoria": "CONTORNI",
+    "con": []
+  },
+  {
+    "id": 16,
+    "nome": "Verdure Grigliate",
+    "prezzo": 3.5,
+    "categoria": "CONTORNI",
+    "con": []
+  },
+  {
+    "id": 17,
+    "nome": "Birra Bionda Media",
+    "prezzo": 5,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 18,
+    "nome": "Birra Bionda Piccola",
+    "prezzo": 3,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 19,
+    "nome": "Birra Rossa Media",
+    "prezzo": 5.5,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 20,
+    "nome": "Birra Rossa Piccola",
+    "prezzo": 3.5,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 21,
+    "nome": "Birra IPA Media",
+    "prezzo": 6,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 22,
+    "nome": "Birra IPA Piccola",
+    "prezzo": 4,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 23,
+    "nome": "AMIGA LATTINA",
+    "prezzo": 6,
+    "categoria": "GADGET",
+    "con": []
+  },
+  {
+    "id": 24,
+    "nome": "Spritz Aperol",
+    "prezzo": 2.5,
+    "categoria": "DRINK",
+    "con": []
+  },
+  {
+    "id": 25,
+    "nome": "Spritz Campari",
+    "prezzo": 2.5,
+    "categoria": "DRINK",
+    "con": []
+  },
+  {
+    "id": 26,
+    "nome": "Spritz Bianco",
+    "prezzo": 2.5,
+    "categoria": "DRINK",
+    "con": []
+  },
+  {
+    "id": 27,
+    "nome": "Americano",
+    "prezzo": 5,
+    "categoria": "DRINK",
+    "con": []
+  },
+  {
+    "id": 28,
+    "nome": "Negroni",
+    "prezzo": 5,
+    "categoria": "DRINK",
+    "con": []
+  },
+  {
+    "id": 29,
+    "nome": "Latt. Coca-Cola",
+    "prezzo": 2.5,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 30,
+    "nome": "Latt. Coca-Cola Zero",
+    "prezzo": 2.5,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 31,
+    "nome": "Acqua naturale 0.5l",
+    "prezzo": 1.5,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 32,
+    "nome": "Acqua frizzante 0.5l",
+    "prezzo": 1.5,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 33,
+    "nome": "Latt. The pesca",
+    "prezzo": 2.5,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 34,
+    "nome": "Latt. The Limone",
+    "prezzo": 2.5,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 35,
+    "nome": "Latt. Fanta",
+    "prezzo": 2.5,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 36,
+    "nome": "Bott. Prosecco Frizzante",
+    "prezzo": 8,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 37,
+    "nome": "Bott. Prosecco Frizzante",
+    "prezzo": 8,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 38,
+    "nome": "Bott. Raboso Frizzante",
+    "prezzo": 8,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 39,
+    "nome": "Caffè",
+    "prezzo": 1,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 40,
+    "nome": "Caffè Deca",
+    "prezzo": 1,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 41,
+    "nome": "Mignon grappa",
+    "prezzo": 2,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 42,
+    "nome": "Mignon Sanbuca",
+    "prezzo": 2,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 43,
+    "nome": "Mignon Liquirizia",
+    "prezzo": 2,
+    "categoria": "CHIOSCO",
+    "con": []
+  },
+  {
+    "id": 44,
+    "nome": "Mojito",
+    "prezzo": 6,
+    "categoria": "DRINK",
+    "con": []
+  },
+  {
+    "id": 45,
+    "nome": "Gin Tonic",
+    "prezzo": 6,
+    "categoria": "DRINK",
+    "con": []
+  },
+  {
+    "id": 46,
+    "nome": "Gin Lemon",
+    "prezzo": 6,
+    "categoria": "DRINK",
+    "con": []
+  },
+  {
+    "id": 47,
+    "nome": "Vodka Tonic",
+    "prezzo": 6,
+    "categoria": "DRINK",
+    "con": []
+  },
+  {
+    "id": 48,
+    "nome": "Vodka Lemon",
+    "prezzo": 6,
+    "categoria": "DRINK",
+    "con": []
+  },
+  {
+    "id": 49,
+    "nome": "Gin Tonic PREMIUM",
+    "prezzo": 9,
+    "categoria": "DRINK",
+    "con": []
+  },
+  {
+    "id": 51,
+    "nome": "Coppetta Gelato",
+    "prezzo": 1,
+    "categoria": "CHIOSCO",
+    "con": []
+  }
+]

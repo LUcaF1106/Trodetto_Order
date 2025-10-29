@@ -1,1 +1,17 @@
 @use 'tailwindcss';
+
+@theme {
+  --color-trodetto: #fe750d;
+  --color-button-minus: #1949a9;
+  --color-button-plus: #fa0d19;
+}
+
+.bg-trodetto {
+  background-color: var(--color-trodetto);
+}
+.text-trodetto {
+  color: var(--color-trodetto);
+}
+.border-trodetto {
+  border-color: var(--color-trodetto);
+}
