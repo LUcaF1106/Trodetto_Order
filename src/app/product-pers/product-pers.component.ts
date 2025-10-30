@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { DataTransferService } from '../common/service/dataTransfer/data-transfer.service';
 import { ProductJson } from '../common/interface/product_json';
 import { ModalProdComponent } from '../features/modal-prod/modal-prod.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-pers',
@@ -12,6 +13,7 @@ import { ModalProdComponent } from '../features/modal-prod/modal-prod.component'
 })
 export class ProductPersComponent {
   private dataTransfer: DataTransferService = inject(DataTransferService);
+  private router: Router = inject(Router);
   protected product: ProductJson;
 
   protected ingredients: boolean[] = [];
@@ -32,6 +34,11 @@ export class ProductPersComponent {
       }
     }
   }
+  close() {
+    this.dataTransfer.clearProduct();
+    console.log('ciaoo');
+    this.router.navigate(['/lista-prodotti']);
+  }
   add() {
     this.qt++;
   }
@@ -39,6 +46,7 @@ export class ProductPersComponent {
     if (this.qt > 1) this.qt--;
   }
   click() {
+    //TODO: implementare logica carrello
     console.log('click');
   }
 
@@ -54,7 +62,7 @@ export class ProductPersComponent {
 
     if (value === '' || +value < 1) {
       this.qt = 1;
-      input.value = '1'; // forza la visualizzazione immediata
+      input.value = '1';
     } else {
       this.qt = +value;
     }

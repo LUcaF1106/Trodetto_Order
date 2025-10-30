@@ -1,6 +1,9 @@
 <div class="bg-[#F5F5F5] h-screen">
   <div class="fixed left-2 top-2">
-    <div class="p-2 bg-trodetto text-white rounded-full font-bold">
+    <div
+      class="p-2 bg-trodetto text-white rounded-full font-bold"
+      (click)="close()"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -18,19 +21,18 @@
     </div>
   </div>
 
-  <div class="pt-15 font-sans">
-    <span class="text-4xl font-bold p-4 pl-6 pt-5">{{
-      this.product.nome
-    }}</span>
-    <p class="pl-8 text-2xl font-bold text-gray-700">
+  <div class="pt-15 font-sans w-full">
+    <span
+      class="text-3xl font-bold pl-4 pt-5 pb-0 text-balance w-full inline-block"
+      >{{ this.product.nome }}</span
+    >
+    <p class="pl-6 text-2xl font-bold text-gray-700">
       {{ this.product.prezzo.toFixed(2) }}€
     </p>
-    <p class="p-2 pl-8 text-xl text-gray-700">descrizione</p>
+    <!--<p class="p-2 pl-8 text-xl text-gray-700">descrizione</p>-->
 
     <div class="flex flex-col gap-3 p-6 bg-gray-100 min-h-screen">
-      <span class="font-sans text-lg"
-        >Personalizza il panino: escludi gli ingredienti che non vuoi</span
-      >
+      <span class="font-sans text-lg">Personalizza il panino:</span>
 
       @for (prod of product.con; track $index) {
         <label
@@ -46,7 +48,7 @@
               a
          </div>-->
             <span
-              class="text-gray-600 text-2xl peer-checked:text-gray-900 font-semibold"
+              class="text-gray-600 text-2xl peer-checked:text-gray-900 font-semibold text-clip"
             >
               {{ prod.nome }}
             </span>

@@ -14,7 +14,7 @@ export class ModalProdComponent {
 
   @Output() conferma = new EventEmitter<number>();
 
-  quantita: number | null = null;
+  qt = 1;
 
   open() {
     this.visible = true;
@@ -27,9 +27,27 @@ export class ModalProdComponent {
   }
 
   confermaQuantita() {
-    if (this.quantita !== null && this.quantita >= 0) {
-      this.conferma.emit(this.quantita);
+    if (this.qt !== null && this.qt >= 0) {
+      this.conferma.emit(this.qt);
       this.close();
+    }
+  }
+  add() {
+    this.qt++;
+  }
+  remove() {
+    if (this.qt > 1) this.qt--;
+  }
+
+  correggiQuantita(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const value = input.value;
+
+    if (value === '' || +value < 1) {
+      this.qt = 1;
+      input.value = '1';
+    } else {
+      this.qt = +value;
     }
   }
 }

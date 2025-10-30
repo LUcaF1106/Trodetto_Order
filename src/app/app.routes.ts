@@ -11,4 +11,5 @@ export const routes: Routes = [
     canActivate: [productGuard],
   },
   { path: 'lista-prodotti', component: OrderListComponent, pathMatch: 'full' },
+  { path: '**', redirectTo: 'lista-prodotti' },
 ];
