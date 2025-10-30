@@ -47,6 +47,6 @@ export class OrderListItemComponent {
   @Output() clicked = new EventEmitter<Product_save>();
 
   click() {
-    this.clicked.emit({ id: 0, nome: this.label, prezzo: this.price });
+    this.clicked.emit({ id: this.id, nome: this.label, prezzo: this.price });
   }
 }

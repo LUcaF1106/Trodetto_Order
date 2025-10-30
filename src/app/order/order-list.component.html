@@ -42,23 +42,23 @@
             id="default-search"
             class="block w-full p-4 ps-10 text-sm text-gray-950 border border-trodetto rounded-full bg-white focus:ring-blue-500 focus:border-blue-500"
             placeholder="Ricerca prodotti"
-            required
+            [ngModel]="filterText()"
+            (ngModelChange)="filterText.set($event)"
           />
           <!--<button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>-->
         </div>
       </div>
       <div class="grid grid-cols-1 gap-4 pt-4 pb-4">
-        @for (product of productList; track $index) {
-          <div class="">
-            <app-order-list-item
-              [id]="$index"
-              [label]="'Prodotto aaaaaaaaaaaa' + $index"
-              price="66"
-              (clicked)="clickProduct($event)"
-            ></app-order-list-item>
-          </div>
+        @for (product of productFiltered(); track $index) {
+          <app-order-list-item
+            [id]="product.id"
+            [label]="product.nome"
+            [price]="product.prezzo"
+            (clicked)="clickProduct(product)"
+          ></app-order-list-item>
         }
       </div>
     </div>
   </div>
 </div>
+<app-modal-prod></app-modal-prod>

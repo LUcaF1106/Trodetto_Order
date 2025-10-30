@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { OrderListComponent } from './features/orders/components/order/order-list.component';
+import { OrderListComponent } from './order/order-list.component';
 import { ProductPersComponent } from './product-pers/product-pers.component';
 
 @Component({

@@ -1,6 +1,5 @@
 <div
   class="flex flex-col items-center bg-white shadow-md rounded-2xl select-none relative"
-  (click)="click()"
 >
   <!--border-1 border-gray-500-->
   <div class="w-full">
@@ -15,18 +14,22 @@
       >
         {{ label }}
       </span>
-      <p class="text-xs font-sans p-2 pt-0 pb-2 text-gray-500">
+      <!--<p class="text-xs font-sans p-2 pt-0 pb-2 text-gray-500">
         Lorem ipsum dolor sit amet consectetur adipiscing elit assum zzril
         ullamcorper sit laboris soluta id pariatur esse clita elit non ullamco
         aliquid aliquid autem assum
-      </p>
+      </p>-->
       <p class="text-gray-700 text-base font-sans font-bold">
         {{ price.toFixed(2) }}€
       </p>
     </div>
 
     <div class="absolute bottom-1 right-1">
-      <plus-circle-solid-icon size="40" class="text-trodetto" />
+      <plus-circle-solid-icon
+        size="40"
+        class="text-trodetto"
+        (click)="click()"
+      />
     </div>
   </div>
 </div>

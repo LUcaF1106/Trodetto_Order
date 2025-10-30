@@ -1,0 +1,38 @@
+<!-- Overlay -->
+<div
+  *ngIf="visible"
+  class="fixed inset-0 flex justify-center items-end z-50"
+  style="background-color: rgba(0, 0, 0, 0.3)"
+  (click)="close()"
+>
+  <!-- Bottom sheet -->
+  <div
+    class="w-full rounded-t-2xl p-6 shadow-lg transition-all duration-300 transform translate-y-0 backdrop-blur-sm"
+    style="background-color: rgba(255, 255, 255, 0.9)"
+    (click)="$event.stopPropagation()"
+  >
+    <h2 class="text-xl font-semibold mb-4 text-gray-800">Inserisci quantità</h2>
+
+    <input
+      type="number"
+      [(ngModel)]="quantita"
+      class="border border-gray-300 rounded-lg w-full p-2 mb-4 focus:outline-none focus:ring-2 focus:ring-orange-500"
+      placeholder="Quantità"
+    />
+
+    <div class="flex justify-end gap-3">
+      <button
+        class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-400 transition"
+        (click)="close()"
+      >
+        Annulla
+      </button>
+      <button
+        class="px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition"
+        (click)="confermaQuantita()"
+      >
+        Conferma
+      </button>
+    </div>
+  </div>
+</div>
