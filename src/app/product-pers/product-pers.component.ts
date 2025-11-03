@@ -4,6 +4,7 @@ import { DataTransferService } from '../common/service/dataTransfer/data-transfe
 import { ProductJson } from '../common/interface/product_json';
 import { ModalProdComponent } from '../features/modal-prod/modal-prod.component';
 import { Router } from '@angular/router';
+import { CartService } from '../common/service/shop/cart.service';
 
 @Component({
   selector: 'app-product-pers',
@@ -15,7 +16,7 @@ export class ProductPersComponent {
   private dataTransfer: DataTransferService = inject(DataTransferService);
   private router: Router = inject(Router);
   protected product: ProductJson;
-
+  private cartService: CartService = inject(CartService);
   protected ingredients: boolean[] = [];
 
   protected qt = 1;
@@ -36,7 +37,6 @@ export class ProductPersComponent {
   }
   close() {
     this.dataTransfer.clearProduct();
-    console.log('ciaoo');
     this.router.navigate(['/lista-prodotti']);
   }
   add() {
@@ -46,10 +46,25 @@ export class ProductPersComponent {
     if (this.qt > 1) this.qt--;
   }
   click() {
-    //TODO: implementare logica carrello
-    console.log('click');
+    this.cartService.add(
+      this.cartService.transformToCartItem(
+        this.product,
+        this.qt,
+        this.exclusion(),
+      ),
+    );
+    this.close();
   }
-
+  exclusion(): { id: number; nome: string }[] {
+    const p = this.product.con;
+    const arrRet = [];
+    for (let i = 0; i < p.length; i++) {
+      if (!this.ingredients[i]) {
+        arrRet.push(p[i]);
+      }
+    }
+    return arrRet;
+  }
   changeQt() {
     if (this.qt < 1 || this.qt == null) {
       this.qt = 1;

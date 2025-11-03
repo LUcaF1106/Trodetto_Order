@@ -58,16 +58,16 @@ export class OrderListComponent {
 
   clickProduct($event: Product_save) {
     const prodotto = this.productList().find((p) => p.id === $event.id);
-    console.log(prodotto);
     if (prodotto) {
+      this.dataTransfer.setProduct(prodotto);
       if (prodotto.con.length != 0) {
-        console.log('ciaoo');
-        this.dataTransfer.setProduct(prodotto);
-
         this.router.navigate(['prodotto']);
       } else {
         this.apriModal();
       }
     }
+  }
+  openCart() {
+    this.router.navigate(['carrello']);
   }
 }

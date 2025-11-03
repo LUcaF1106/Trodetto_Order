@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { CartService } from '../../common/service/shop/cart.service';
+import { DataTransferService } from '../../common/service/dataTransfer/data-transfer.service';
 
 @Component({
   selector: 'app-modal-prod',
@@ -11,7 +13,8 @@ import { NgIf } from '@angular/common';
 export class ModalProdComponent {
   @Input() visible = false;
   @Output() visibleChange = new EventEmitter<boolean>();
-
+  private cartService = inject(CartService);
+  private dataService = inject(DataTransferService);
   @Output() conferma = new EventEmitter<number>();
 
   qt = 1;
@@ -22,15 +25,21 @@ export class ModalProdComponent {
   }
 
   close() {
+    this.qt = 1;
+    this.dataService.clearProduct();
     this.visible = false;
     this.visibleChange.emit(false);
   }
 
   confermaQuantita() {
-    if (this.qt !== null && this.qt >= 0) {
-      this.conferma.emit(this.qt);
-      this.close();
+    const prod = this.dataService.product();
+
+    if (this.qt !== null && this.qt >= 0 && prod) {
+      this.cartService.add(
+        this.cartService.transformToCartItem(prod, this.qt, []),
+      );
     }
+    this.close();
   }
   add() {
     this.qt++;
