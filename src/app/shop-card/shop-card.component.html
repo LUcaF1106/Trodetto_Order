@@ -1,5 +1,17 @@
 <div class="h-screen w-full bg-gray-100">
   <div class="grid grid-cols-1 p-4">
-    <app-shop-item></app-shop-item>
+    @for (i of card(); track $index) {
+      <app-shop-item
+        [id]="i.id"
+        [index]="$index"
+        [name]="i.name"
+        [quantity]="i.qt"
+        [price]="i.price"
+        [con]="i.con"
+        [esx]="i.exclusion"
+        (delete)="deleteProduct($event)"
+        (qtUpdate)="updateQt($event)"
+      ></app-shop-item>
+    }
   </div>
 </div>

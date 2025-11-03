@@ -24,8 +24,19 @@ export class CartService {
       prod[i].qt += addEl.qt;
     }
 
-    this.cart.set([...prod]); // usa copia per aggiornare il signal
+    this.cart.set([...prod]);
   }
+  delete(index: number) {
+    const prod = this.cart().filter((_, i) => i !== index);
+    this.cart.set(prod);
+  }
+
+  updateQtProduct(qt: number, index: number) {
+    const prod = this.cart();
+    prod[index].qt = qt;
+    this.cart.set([...prod]);
+  }
+
   private arraysHaveSameObjects(
     a: { id: number; nome: string }[],
     b: { id: number; nome: string }[],

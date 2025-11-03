@@ -1,7 +1,23 @@
-<div class="bg-white w-full p-6 pb-2 pt-3 rounded-lg">
+<div class="bg-white w-full p-6 pb-2 pt-3 rounded-lg mt-2 relative">
   <div>
-    <span class="text-2xl font-bold break-line block">Nome prodotto</span>
-    <span class="block pl-2 text-lg text-gray-600">con ...</span>
+    <span class="text-2xl font-bold break-line block">{{ name }}</span>
+    @if (!(con.length === 0 && esx.length === 0)) {
+      <span class="block pl-2 text-lg text-gray-600">
+        @if (this.esx.length === 0) {
+          Completo
+        } @else if (this.con.length === 0) {
+          Senza aggiunte
+        } @else {
+          Con
+          @for (i of this.con; track $index) {
+            {{ i.nome }}
+            @if (!(con.length - 1 === $index)) {
+              ,
+            }
+          }
+        }
+      </span>
+    }
   </div>
   <div class="flex w-full justify-between items-center pl-2">
     <div
@@ -15,6 +31,7 @@
           tabindex="-1"
           aria-label="Decrease"
           data-hs-input-number-decrement=""
+          (click)="reduce()"
         >
           <svg
             class="shrink-0 size-3.5"
@@ -38,6 +55,8 @@
           aria-roledescription="Number field"
           value="0"
           data-hs-input-number-input=""
+          [(ngModel)]="quantity"
+          (input)="correctQt($event)"
         />
         <button
           type="button"
@@ -45,6 +64,7 @@
           tabindex="-1"
           aria-label="Increase"
           data-hs-input-number-increment=""
+          (click)="add()"
         >
           <svg
             class="shrink-0 size-3.5"
@@ -64,10 +84,15 @@
         </button>
       </div>
     </div>
-    <div class="text-xl font-bold text-gray-600">66.00€</div>
+    <div class="text-xl font-bold text-gray-600">
+      {{ (this.quantity * this.price).toFixed(2) }}€
+    </div>
   </div>
 
-  <div class="absolute top-7 right-7 bg-red-600 p-1 rounded-full">
+  <div
+    class="absolute top-2 right-2 bg-red-600 p-1 rounded-full"
+    (click)="this.onclickdelete()"
+  >
     <trash-outline-icon color="white" />
   </div>
 </div>
