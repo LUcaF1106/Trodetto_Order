@@ -1,5 +1,33 @@
 <div class="h-screen w-full bg-gray-100">
-  <div class="grid grid-cols-1 p-4">
+  <div
+    class="fixed top-0 right-0 left-0 bg-white w-full h-16 z-10 flex items-center justify-between"
+  >
+    <div
+      class="bg-trodetto rounded-full p-2 m-2 text-white"
+      (click)="comeBack()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 19.5 8.25 12l7.5-7.5"
+        />
+      </svg>
+    </div>
+    <span class="text-xl mt-auto mb-auto px-5 inline-block font-bold">
+      8° FESTA DEL TORDETTO
+    </span>
+    <div class="w-10"></div>
+  </div>
+
+  <div class="grid grid-cols-1 p-4 mt-14 gap-2">
     @for (i of card(); track $index) {
       <app-shop-item
         [id]="i.id"
@@ -13,5 +41,12 @@
         (qtUpdate)="updateQt($event)"
       ></app-shop-item>
     }
+  </div>
+  <div class="fixed bottom-0 left-0 right-0 p-3">
+    <button
+      class="bg-trodetto font-bold text-white p-4 text-3xl w-full rounded-3xl disabled:bg-gray-400 disabled:cursor-not-allowed"
+    >
+      Conferma
+    </button>
   </div>
 </div>
