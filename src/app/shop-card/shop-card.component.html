@@ -1,4 +1,4 @@
-<div class="h-screen w-full bg-gray-100">
+<div class="w-full bg-gray-100">
   <div
     class="fixed top-0 right-0 left-0 bg-white w-full h-16 z-10 flex items-center justify-between"
   >
@@ -27,7 +27,7 @@
     <div class="w-10"></div>
   </div>
 
-  <div class="grid grid-cols-1 p-4 mt-14 gap-2">
+  <div class="grid grid-cols-1 p-4 mt-14 gap-2 pb-30 bg-gray-100">
     @for (i of card(); track $index) {
       <app-shop-item
         [id]="i.id"
@@ -45,6 +45,7 @@
   <div class="fixed bottom-0 left-0 right-0 p-3">
     <button
       class="bg-trodetto font-bold text-white p-4 text-3xl w-full rounded-3xl disabled:bg-gray-400 disabled:cursor-not-allowed"
+      (click)="confirm()"
     >
       Conferma
     </button>
