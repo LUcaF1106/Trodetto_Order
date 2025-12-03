@@ -1,4 +1,11 @@
-import { Component, computed, inject, signal, ViewChild } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  Signal,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { OrderListItemComponent } from '../features/orders/components/order-list/order-list-item.component';
 import { Product_save } from '../common/interface/product_save';
 import { ShoppingCartOutlineIconComponent } from '@dimaslz/ng-heroicons';
@@ -9,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataTransferService } from '../common/service/dataTransfer/data-transfer.service';
 import { ModalProdComponent } from '../features/modal-prod/modal-prod.component';
+import { CartService } from '../common/service/shop/cart.service';
 
 @Component({
   selector: 'app-order-list',
@@ -27,6 +35,7 @@ export class OrderListComponent {
   private router = inject(Router);
   private dataTransfer: DataTransferService = inject(DataTransferService);
   productList = signal<ProductJson[]>([]);
+  private shopService = inject(CartService);
 
   filterText = signal('');
 
@@ -38,6 +47,14 @@ export class OrderListComponent {
     return this.productList().filter((p) =>
       p.nome.toLowerCase().includes(filtro),
     );
+  });
+  cartCount: Signal<number> = computed(() => {
+    let total = 0;
+    for (const cartItem of this.shopService.cartItems()) {
+      total += cartItem.qt;
+    }
+    console.log(total);
+    return total;
   });
 
   constructor() {

@@ -32,7 +32,9 @@
     <!--<p class="p-2 pl-8 text-xl text-gray-700">descrizione</p>-->
 
     <div class="flex flex-col gap-3 p-6 bg-gray-100 min-h-screen">
-      <span class="font-sans text-lg">Personalizza il panino:</span>
+      <span class="font-sans text-lg"
+        >Seleziona gli ingredienti che vuoi sul tuo panino:</span
+      >
 
       @for (prod of product.con; track $index) {
         <label
@@ -43,16 +45,40 @@
             class="peer hidden"
             [(ngModel)]="ingredients[$index]"
           />
-          <div class="flex flex-col">
-            <!--<div class="h-10 w-10 rounded-lg bg-gray-400 peer-checked:bg-blue-100 flex items-center justify-center text-white text-xl">
-              a
-         </div>-->
+
+          <div class="flex flex-col justify-between w-full">
             <span
               class="text-gray-600 text-2xl peer-checked:text-gray-900 font-semibold text-clip"
             >
               {{ prod.nome }}
             </span>
           </div>
+
+          <!-- PLUS icon (visible when NOT selected) -->
+          <svg
+            class="w-7 h-7 text-gray-600 peer-checked:hidden transition-all"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 4v16m8-8H4"
+            />
+          </svg>
+
+          <!-- MINUS or CHECK icon (visible when selected) -->
+          <svg
+            class="w-7 h-7 text-trodetto hidden peer-checked:block transition-all"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
+          </svg>
         </label>
       }
     </div>
