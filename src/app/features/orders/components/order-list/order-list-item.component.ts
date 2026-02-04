@@ -7,16 +7,11 @@ import {
 } from '@angular/core';
 
 import { Product_save } from '../../../../common/interface/product_save';
-import {
-  InformationCircleOutlineIconComponent,
-  PlusCircleSolidIconComponent,
-} from '@dimaslz/ng-heroicons';
+
 
 @Component({
   selector: 'app-order-list-item',
   imports: [
-    PlusCircleSolidIconComponent,
-    InformationCircleOutlineIconComponent,
   ],
   templateUrl: './order-list-item.component.html',
   styleUrl: './order-list-item.component.scss',

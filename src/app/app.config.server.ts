@@ -1,11 +1,16 @@
-import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
+import { mergeApplicationConfig, ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideServerRendering } from '@angular/platform-server';
-import { provideServerRouting } from '@angular/ssr';
+import { RouterModule } from '@angular/router';
 import { appConfig } from './app.config';
-import { serverRoutes } from './app.routes.server';
+import { routes } from './app.routes';
 
 const serverConfig: ApplicationConfig = {
-  providers: [provideServerRendering(), provideServerRouting(serverRoutes)],
+  providers: [
+    provideServerRendering(),
+    importProvidersFrom(
+      RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' })
+    ),
+  ],
 };
 
 export const config = mergeApplicationConfig(appConfig, serverConfig);

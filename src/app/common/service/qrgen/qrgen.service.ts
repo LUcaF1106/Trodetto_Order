@@ -24,6 +24,36 @@ export class QrgenService {
     }
     return output;
   }
+  pdfProduct(): PDFProd[] {
+    const prod = this.cartService.cartItems();
+    let output: PDFProd[] = [];
+    for(let item of prod) {
+      let note=''
+      if (!(item.con.length === 0 && item.exclusion.length === 0)) {
+        if (item.exclusion.length === 0) {
+         note= 'Completo'
+        } else if (item.con.length === 0) {
+         note=' Senza aggiunte'
+        } else {
+          note = 'Con '
+          let index = 0;
+          for (let i of item.con) {
+            note+= i.nome
+            if (!(item.con.length - 1 === index)) {
+              note+=', '
+            }
+            index++
+          }
+        }
+      }
+      output.push({ nome: item.name,
+        note: note,
+        qt: item.qt,
+        price:item.price });
+    }
+
+    return output
+  }
 
   convertToJsonQr(i: CartItem): JsonQr {
     const out: JsonQr = {
@@ -36,6 +66,12 @@ export class QrgenService {
 
     return out;
   }
+}
+export interface PDFProd{
+  nome: string;
+  note: string;
+  qt:number;
+  price:number;
 }
 export class JsonQr {
   id?: number;

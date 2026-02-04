@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TrashOutlineIconComponent } from '@dimaslz/ng-heroicons';
+
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-shop-item',
-  imports: [TrashOutlineIconComponent, FormsModule],
+  imports: [ FormsModule],
   templateUrl: './shop-item.component.html',
   styleUrl: './shop-item.component.scss',
 })

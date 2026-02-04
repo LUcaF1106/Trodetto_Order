@@ -9,7 +9,12 @@
       >Attendi il turno e mostra il QR code in cassa.</span
     >
   </div>
-  <div class="flex w-full justify-center m-2 mt-8">
+  <div class="flex w-full justify-center m-2 mt-8 mb-2">
     <qrcode [width]="300" [qrdata]="json"></qrcode>
   </div>
+  <div>
+    <app-pdf-generator [products]="prod" [qrData]="json"></app-pdf-generator>
+
+  </div>
+
 </div>

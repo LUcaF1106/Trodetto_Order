@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { OrderListItemComponent } from '../features/orders/components/order-list/order-list-item.component';
 import { Product_save } from '../common/interface/product_save';
-import { ShoppingCartOutlineIconComponent } from '@dimaslz/ng-heroicons';
 import { ProductService } from '../common/service/product/product.service';
 import { ProductJson } from '../common/interface/product_json';
 import { firstValueFrom } from 'rxjs';
@@ -22,7 +21,6 @@ import { CartService } from '../common/service/shop/cart.service';
   selector: 'app-order-list',
   imports: [
     OrderListItemComponent,
-    ShoppingCartOutlineIconComponent,
     FormsModule,
     ModalProdComponent,
   ],

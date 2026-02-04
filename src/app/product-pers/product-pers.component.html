@@ -38,7 +38,9 @@
 
       @for (prod of product.con; track $index) {
         <label
-          class="relative flex items-center gap-4 cursor-pointer rounded-xl border-2 border-transparent bg-gray-200 px-4 py-3 shadow-sm transition-all has-[:checked]:border-trodetto has-[:checked]:bg-white has-[:checked]:shadow-md"
+          class="relative flex items-center gap-4 cursor-pointer rounded-xl
+         border-2 border-transparent bg-gray-200 px-4 py-3 shadow-sm transition-all
+         has-[:checked]:border-trodetto has-[:checked]:bg-white has-[:checked]:shadow-md"
         >
           <input
             type="checkbox"
@@ -46,40 +48,30 @@
             [(ngModel)]="ingredients[$index]"
           />
 
+          <!-- SENZA (quando NON selezionato) -->
+          <span
+            class="text-xl font-medium text-gray-600 peer-checked:hidden transition-all"
+          >
+    Senza
+  </span>
+
+          <!-- CON (quando selezionato) -->
+          <span
+            class="text-xl font-medium text-trodetto hidden peer-checked:block transition-all"
+          >
+    Con
+  </span>
+
+          <!-- NOME PRODOTTO -->
           <div class="flex flex-col justify-between w-full">
-            <span
-              class="text-gray-600 text-2xl peer-checked:text-gray-900 font-semibold text-clip"
-            >
-              {{ prod.nome }}
-            </span>
+    <span
+      class="text-gray-600 text-2xl font-semibold peer-checked:text-gray-900 text-clip"
+    >
+      {{ prod.nome }}
+    </span>
           </div>
-
-          <!-- PLUS icon (visible when NOT selected) -->
-          <svg
-            class="w-7 h-7 text-gray-600 peer-checked:hidden transition-all"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 4v16m8-8H4"
-            />
-          </svg>
-
-          <!-- MINUS or CHECK icon (visible when selected) -->
-          <svg
-            class="w-7 h-7 text-trodetto hidden peer-checked:block transition-all"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
-          </svg>
         </label>
+
       }
     </div>
   </div>
