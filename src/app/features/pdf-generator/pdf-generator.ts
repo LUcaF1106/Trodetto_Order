@@ -31,8 +31,8 @@ export class PdfGenerator {
         p.nome,
         p.note,
         p.qt,
-        `€ ${p.price.toFixed(2)}`,
-        `€ ${(p.qt * p.price).toFixed(2)}`
+        `  € ${p.price.toFixed(2)}`,
+        `  € ${(p.qt * p.price).toFixed(2)}`
       ])
     });
 
@@ -45,7 +45,7 @@ export class PdfGenerator {
     const finalY = (doc as any).lastAutoTable.finalY + 10;
 
     doc.setFontSize(14);
-    doc.text(`Totale ordine: € ${total.toFixed(2)}`, 14, finalY);
+    doc.text(`Totale ordine:   € ${total.toFixed(2)}`, 14, finalY);
 
 
     const qrImage = await QRCode.toDataURL(this.qrData);
