@@ -1,0 +1,8 @@
+name = "trodetto-order"
+compatibility_date = "2024-04-23" # Usa la data odierna o una recente
+
+[site]
+bucket = "./dist/trodetto-order/browser" # Percorso della build di Angular
+
+[build]
+command = "npm run build"
