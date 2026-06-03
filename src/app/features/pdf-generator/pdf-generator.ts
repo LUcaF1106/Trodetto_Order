@@ -1,7 +1,4 @@
 import { Component, Input } from '@angular/core';
-import jsPDF from 'jspdf';
-import autoTable from 'jspdf-autotable';
-import QRCode from 'qrcode';
 
 @Component({
   selector: 'app-pdf-generator',
@@ -16,6 +13,17 @@ export class PdfGenerator {
 
   async downloadPdf() {
     if (typeof window === 'undefined') return;
+
+    // Import dinamici: caricati solo nel browser, mai nel bundle server
+    const [
+      { default: jsPDF },
+      { default: autoTable },
+      { default: QRCode }
+    ] = await Promise.all([
+      import('jspdf'),
+      import('jspdf-autotable'),
+      import('qrcode')
+    ]);
 
     const doc = new jsPDF();
 
@@ -47,10 +55,8 @@ export class PdfGenerator {
     doc.setFontSize(14);
     doc.text(`Totale ordine:   € ${total.toFixed(2)}`, 14, finalY);
 
-
     const qrImage = await QRCode.toDataURL(this.qrData);
-
-    doc.addImage(qrImage, 'PNG',14, finalY+10, 40, 40);
+    doc.addImage(qrImage, 'PNG', 14, finalY + 10, 40, 40);
 
     // Download
     doc.save('ordine.pdf');
