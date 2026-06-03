@@ -1,5 +1,4 @@
-
-name = "trodetto_order"
+name = "trodetto-order"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 main = "./dist/trodetto-order/server/server.mjs"
@@ -15,4 +14,15 @@ command = "npm run build"
 
 # ─── Environment Variables ───────────────────────────────────────────────────
 [vars]
+ENVIRONMENT = "production"
+# ─── Ambiente: Staging ───────────────────────────────────────────────────────
+[env.staging]
+name = "trodetto-order-staging"
+[env.staging.vars]
+ENVIRONMENT = "staging"
+
+# ─── Ambiente: Production ────────────────────────────────────────────────────
+[env.production]
+name = "trodetto-order-production"
+[env.production.vars]
 ENVIRONMENT = "production"
