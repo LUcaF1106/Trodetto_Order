@@ -11,7 +11,7 @@ binding = "ASSETS"
 
 # ─── Build ───────────────────────────────────────────────────────────────────
 [build]
-command = "npm install && npm run build"
+command = "npm run build"
 
 # ─── Environment Variables ───────────────────────────────────────────────────
 [vars]
