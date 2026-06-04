@@ -9,19 +9,14 @@ for (const file of files) {
   let content = readFileSync(path, 'utf8');
   const original = content;
 
-  content = content
-    .replace(/createRequire\(__filename\)/g, 'createRequire("file:///index.js")')
-    .replace(/createRequire\(void 0\)/g, 'createRequire("file:///index.js")')
-    .replace(/createRequire\(undefined\)/g, 'createRequire("file:///index.js")')
-    .replace(/createRequire\(import\.meta\.url\)/g, 'createRequire("file:///index.js")')
-    .replace(/var (\w+)=createRequire\(([^)]*)\)/g, 'var $1=createRequire("file:///index.js")');
+  // Sostituisce QUALSIASI chiamata a createRequire con argomento qualunque
+  content = content.replace(/createRequire\([^)]*\)/g, 'createRequire("file:///index.js")');
 
   if (content !== original) {
     writeFileSync(path, content);
     console.log(`Patched: ${file}`);
   } else if (content.includes('createRequire')) {
-    const idx = content.indexOf('createRequire');
-    console.log(`NOT PATCHED ${file}: ...${content.slice(idx - 10, idx + 60)}...`);
+    console.log(`NOT PATCHED ${file}`);
   }
 }
 console.log('Patch complete.');
