@@ -9,8 +9,6 @@ for (const file of files) {
   let content = readFileSync(path, 'utf8');
   const original = content;
 
-  // Rimuove la riga che usa __ngCreateRequire(import.meta.url)
-  // e sostituisce globalThis['require'] con una versione sicura
   content = content
     .replace(
       /import \{ createRequire as __ngCreateRequire \} from 'node:module';\s*/g,
