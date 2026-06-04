@@ -9,14 +9,19 @@ for (const file of files) {
   let content = readFileSync(path, 'utf8');
   const original = content;
 
-  // Sostituisce QUALSIASI chiamata a createRequire con argomento qualunque
   content = content.replace(/createRequire\([^)]*\)/g, 'createRequire("file:///index.js")');
 
   if (content !== original) {
     writeFileSync(path, content);
     console.log(`Patched: ${file}`);
   } else if (content.includes('createRequire')) {
-    console.log(`NOT PATCHED ${file}`);
+    // Stampa il contenuto completo del file piccolo
+    if (content.length < 2000) {
+      console.log(`CONTENT OF ${file}:\n${content}`);
+    } else {
+      const idx = content.indexOf('createRequire');
+      console.log(`CONTEXT ${file}: ${content.slice(Math.max(0, idx-30), idx+80)}`);
+    }
   }
 }
 console.log('Patch complete.');
