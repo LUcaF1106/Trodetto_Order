@@ -1,4 +1,11 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { CartService } from '../../common/service/shop/cart.service';
@@ -8,6 +15,7 @@ import { DataTransferService } from '../../common/service/dataTransfer/data-tran
   selector: 'app-modal-prod',
   imports: [FormsModule, NgIf],
   templateUrl: './modal-prod.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './modal-prod.component.scss',
 })
 export class ModalProdComponent {

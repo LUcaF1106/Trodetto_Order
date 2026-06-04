@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DataTransferService } from '../common/service/dataTransfer/data-transfer.service';
 import { ProductJson } from '../common/interface/product_json';
@@ -10,6 +10,7 @@ import { CartService } from '../common/service/shop/cart.service';
   selector: 'app-product-pers',
   imports: [FormsModule, ModalProdComponent],
   templateUrl: './product-pers.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './product-pers.component.scss',
 })
 export class ProductPersComponent {

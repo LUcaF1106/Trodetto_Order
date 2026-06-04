@@ -1,11 +1,18 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-shop-item',
-  imports: [ FormsModule],
+  imports: [FormsModule],
   templateUrl: './shop-item.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './shop-item.component.scss',
 })
 export class ShopItemComponent {

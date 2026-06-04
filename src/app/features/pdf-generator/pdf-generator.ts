@@ -1,14 +1,19 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-pdf-generator',
   imports: [],
   templateUrl: './pdf-generator.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './pdf-generator.scss',
 })
 export class PdfGenerator {
-
-  @Input() products: { nome: string; note: string; qt: number; price: number }[] = [];
+  @Input() products: {
+    nome: string;
+    note: string;
+    qt: number;
+    price: number;
+  }[] = [];
   @Input() qrData: string = '';
 
   async downloadPdf() {
@@ -90,7 +95,8 @@ export class PdfGenerator {
       let cx = margin;
       cells.forEach((cell, ci) => {
         const maxChars = Math.floor(colWidths[ci] / 6);
-        const text = cell.length > maxChars ? cell.slice(0, maxChars - 1) + '…' : cell;
+        const text =
+          cell.length > maxChars ? cell.slice(0, maxChars - 1) + '…' : cell;
         page.drawText(text, {
           x: cx + 4,
           y: rowY + 6,
@@ -118,7 +124,7 @@ export class PdfGenerator {
     if (this.qrData) {
       const qrDataUrl: string = await (QRCode as any).toDataURL(this.qrData);
       const base64 = qrDataUrl.split(',')[1];
-      const qrBytes = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
+      const qrBytes = Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
       const qrImage = await doc.embedPng(qrBytes);
       const qrSize = 100;
 
@@ -132,7 +138,9 @@ export class PdfGenerator {
 
     // ── Download ──────────────────────────────────────────────────────────────
     const pdfBytes = await doc.save();
-    const blob = new Blob([pdfBytes.buffer as ArrayBuffer], { type: 'application/pdf' });
+    const blob = new Blob([pdfBytes.buffer as ArrayBuffer], {
+      type: 'application/pdf',
+    });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;

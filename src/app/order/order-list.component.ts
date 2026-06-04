@@ -5,6 +5,7 @@ import {
   Signal,
   signal,
   ViewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { OrderListItemComponent } from '../features/orders/components/order-list/order-list-item.component';
 import { Product_save } from '../common/interface/product_save';
@@ -19,12 +20,9 @@ import { CartService } from '../common/service/shop/cart.service';
 
 @Component({
   selector: 'app-order-list',
-  imports: [
-    OrderListItemComponent,
-    FormsModule,
-    ModalProdComponent,
-  ],
+  imports: [OrderListItemComponent, FormsModule, ModalProdComponent],
   templateUrl: './order-list.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './order-list.component.scss',
 })
 export class OrderListComponent {

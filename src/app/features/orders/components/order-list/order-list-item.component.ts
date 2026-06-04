@@ -4,16 +4,16 @@ import {
   Input,
   numberAttribute,
   Output,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { Product_save } from '../../../../common/interface/product_save';
 
-
 @Component({
   selector: 'app-order-list-item',
-  imports: [
-  ],
+  imports: [],
   templateUrl: './order-list-item.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './order-list-item.component.scss',
 })
 export class OrderListItemComponent {

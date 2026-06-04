@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { QRCodeComponent } from 'angularx-qrcode';
 import { QrgenService } from '../common/service/qrgen/qrgen.service';
 import { PdfGenerator } from '../features/pdf-generator/pdf-generator';
@@ -7,6 +7,7 @@ import { PdfGenerator } from '../features/pdf-generator/pdf-generator';
   selector: 'app-qrcode',
   imports: [QRCodeComponent, PdfGenerator],
   templateUrl: './qrcode.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './qrcode.component.scss',
 })
 export class QrcodeComponent {
@@ -18,6 +19,6 @@ export class QrcodeComponent {
     const j = JSON.stringify(this.qrcodeService.jsonQrCode());
     console.log(j);
     this.json = j;
-    this.prod=this.qrcodeService.pdfProduct()
+    this.prod = this.qrcodeService.pdfProduct();
   }
 }
